@@ -8,11 +8,21 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 function EditTask({task, open, onClose, onSave}){
-    const [editedTask, setEditedTask] = useState(task);
 
+    const [editedTask, setEditedTask] = useState(task);
     useEffect(() => {
         setEditedTask(task); //load task data when dialog box opens
     }, [task]);
+
+    //if task is null or undefined, return null/nothing
+    if(!task){
+        /*
+        return <div></div>; //return noting
+        */
+       return null;
+    }
+    
+
 
     const handleChange = (e) => {
         setEditedTask({...editedTask, [e.target.name]: e.target.value});
@@ -36,7 +46,7 @@ function EditTask({task, open, onClose, onSave}){
                     type='text'
                     fullWidth
                     variant='standard'
-                    value={task.title}
+                    value={editedTask.title}
                     onChange={handleChange}
                 />
                 <TextField
@@ -46,7 +56,7 @@ function EditTask({task, open, onClose, onSave}){
                     type='text'
                     fullWidth
                     variant='standard'
-                    value={task.description}
+                    value={editedTask.description}
                     onChange={handleChange}
                 />
                 <TextField
@@ -56,7 +66,7 @@ function EditTask({task, open, onClose, onSave}){
                     type='date'
                     fullWidth
                     variant='standard'
-                    value={task.dueDate}
+                    value={editedTask.dueDate}
                     onChange={handleChange}
                     /*control behavior of the label,
                     always stay in shrunken position above the field*/

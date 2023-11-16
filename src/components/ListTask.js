@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 //import {SERVER_URL} from '../constants';
-import {Link} from 'react-router-dom';
 
 //display the date/time of creation in a better way
 function formatCreationDate(dateString){
@@ -38,7 +37,7 @@ function ListTask({tasks, onDelete, onEdit}) {
                 <td>{formatDueDate(task.dueDate)}</td>
                 <td>{formatCreationDate(task.createdAt)}</td>
                 <td>
-                  <button onClick={() => onEdit(task.id)}>Edit</button>
+                  <button onClick={() => onEdit(task)}>Edit</button>
                   <button onClick={() => onDelete(task.id)}>Delete</button>
                 </td>
               </tr>

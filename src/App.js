@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ListTask from './components/ListTask';
 import EditTask from './components/EditTask';
 import Button from '@mui/material/Button';
@@ -12,9 +12,14 @@ import { SERVER_URL } from './constants';
 
 //TODO change this when implementing LOGIN
 function App() {
+  
   const[tasks, setTasks]= useState([]);
   //dialog :
   const [openAddDialog, setOpenAddDialog] = useState(false);
+  const [openEditDialog, setOpenEditDialog] = useState(false);
+  //for editing :
+  const [currentTask, setCurrentTask] = useState(null);
+
   //use for security later : 
   //const [message, setMessage] = useState('');
   //const token = sessionStorage.getItem("jwt");
@@ -74,7 +79,44 @@ function App() {
       handleCloseAddDialog();
   })
   .catch(error => console.error('Network error', error));
-};
+  };
+
+  //open edit task dialog box :
+  const handleOpenEditDialog = (task) => {
+    setCurrentTask(task);
+    setOpenEditDialog(true);
+  }
+
+  //close edit dialog:
+  const handleCloseEditDialog = () => {
+    setOpenEditDialog(false);
+  };
+
+  //update task backend call
+  const handleSaveEditedTask = (editedTask) => {
+    console.log("Updating Task:", editedTask);
+    fetch(`${SERVER_URL}/tasks/${editedTask.id}`,{
+      method:'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify(editedTask)
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+
+    //updatedTask is what has been successfully updated and confirmed by the server
+    .then(updatedTask => {
+      //update task in the tasks array
+      setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+      handleCloseEditDialog(); //close dialog
+    })
+    .catch(error => console.error('Error while editing task', error));
+  };
 
   return (
     <div className="App">
@@ -83,11 +125,17 @@ function App() {
       <AddTask open={openAddDialog} onClose={handleCloseAddDialog} onSave={handleSaveTask} />
       <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<ListTask tasks={tasks} onDelete={handleDelete} />} />
-            <Route path="/edit/:id" element={<EditTask/>} />
-              {/* Add more routes as needed */}
+            <Route path="/" element={<ListTask tasks={tasks} onDelete={handleDelete} onEdit={handleOpenEditDialog}/>} />
           </Routes>
       </BrowserRouter>
+      {currentTask && (
+      <EditTask 
+        task={currentTask}
+        open={openEditDialog}
+        onClose={handleCloseEditDialog}
+        onSave={handleSaveEditedTask}
+      />
+      )}
     </div>
   );
 }
