@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+This is the frontend for our CST438 project for Fall 2023.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our project is a Task Manager app. 
+Pivotal Tracker project's description :
+TASK MANAGER
 
-## Available Scripts
+DESCRIPTION
+The Task Manager project is a robust software engineering initiative focused on creating an intuitive task management application tailored for personal use or small teams. This user-friendly app empowers individuals and teams to efficiently create, modify, delete, and list tasks, streamlining daily workflows and enhancing productivity.
 
-In the project directory, you can run:
+Users can effortlessly create, edit, and delete tasks, ensuring a dynamic and responsive task management experience.
 
-### `npm start`
+A clean and intuitive interface ensures a seamless user experience, catering to individual users and small teams.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project incorporates a well-structured API design, facilitating easy integration with other applications and platforms.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Rigorous testing methodologies are employed to guarantee the reliability and functionality of the Task Manager app, ensuring a bug-free user experience.
 
-### `npm test`
+Leveraging cloud technologies, the app provides secure and scalable deployment options, allowing users to access tasks from any device, anywhere.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The development process follows the agile methodology, ensuring flexibility, quick iterations, and continuous user feedback integration. This approach enables the team to adapt to changing requirements and deliver a product that aligns closely with user needs.
 
-### `npm run build`
+USER BENEFITS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Efficiency: Easily manage and organize tasks for personal or team projects.
+Accessibility: Access tasks from any device with secure cloud deployment.
+Collaboration: Facilitates seamless collaboration for small teams with shared task lists.
+Adaptability: Agile methodology ensures that the app evolves based on user feedback and changing requirements.
+The Task Manager project aims to enhance users' task management experience through a combination of user-centric design, robust API architecture, testing protocols, and cloud deployment. Adopting an agile approach, the development team ensures that the Task Manager app stays responsive to user needs and delivers a reliable and efficient solution for personal and small-team task management.
