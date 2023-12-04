@@ -7,7 +7,7 @@ import AddTask from './components/AddTask';
 
 //import login from './components/Login';
 
-import './App.css';
+import './styles/App.css';
 import { SERVER_URL } from './constants';
 
 //TODO change this when implementing LOGIN
@@ -120,12 +120,17 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Task Manager</h2>
-      <Button variant='contained' size='small' onClick={handleOpenAddDialog}> Create Task</Button>
+      <h1>Task-Man</h1> <span>The amazing task manager!</span>
+      
+      <div style={{textAlign: 'right', width : '90%', paddingBottom: '2em' }}>
+        <Button id='create-button' variant='contained' size='large' onClick={handleOpenAddDialog}> Create Task</Button>
+        <Button id='login-button' variant='contained' size='large'> Login </Button>
+      </div>
+      
       <AddTask open={openAddDialog} onClose={handleCloseAddDialog} onSave={handleSaveTask} />
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<ListTask tasks={tasks} onDelete={handleDelete} onEdit={handleOpenEditDialog}/>} />
+            <Route path="/" element={<div id="task-container"><ListTask tasks={tasks} onDelete={handleDelete} onEdit={handleOpenEditDialog}/></div>} />
           </Routes>
       </BrowserRouter>
       {currentTask && (

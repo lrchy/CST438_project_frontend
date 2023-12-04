@@ -1,5 +1,12 @@
-.App {
-  text-align: center;
+body {
+  background-color: #282c34;
+}
+
+span {
+  color: goldenrod;
+  font-weight: 500;
+  font-size: 18px;
+  text-shadow: rgb(75, 56, 12) 4px 4px;
 }
 
 .App-logo {
@@ -50,7 +57,7 @@ th, td {
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #bdbdbd;
 }
 /*good looking hover thing*/
 tr:hover {
@@ -59,4 +66,34 @@ tr:hover {
 /* button style*/
 button {
   margin-right: 5px;
+}
+
+h1 {
+  display: inline-block;
+  color: goldenrod;
+  text-shadow: rgb(75, 56, 12) 4px 4px;
+  padding-left: 2em;
+  padding-right: 1em;
+}
+
+#task-container {
+  margin: 0 auto;
+  width: 80%;
+  height: 40em;
+  vertical-align: middle;
+  background-color: #32343a;
+  border-radius: 25px;
+}
+
+#create-button {
+  background-color: goldenrod;
+  font-weight: bold;
+  align-items: right;
+  margin-right: 2em;
+}
+
+#login-button {
+  background-color: goldenrod;
+  font-weight: bold;
+  align-items: right;
 }

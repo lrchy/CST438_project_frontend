@@ -1,0 +1,42 @@
+#task {
+    display: flex;
+    justify-content: center;
+    
+  }
+
+.task-card {
+    margin: 1em;
+    width: 20em;
+    height: 10em;
+    border-radius: 10px;
+    background-color: goldenrod;
+    color: rgb(255, 250, 236);
+    box-shadow: rgb(75, 56, 12) 6px 6px;
+}
+
+.task-content {
+    text-align: left;
+    padding-left: 1.6em;
+    padding-bottom: 0.4em;
+    font-weight: 500;
+    text-shadow: rgb(143, 108, 20) 2px 2px;
+}
+
+.task-options {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    text-shadow: rgb(143, 108, 20) 2px 2px;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(255, 250, 236);
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: rgb(143, 108, 20) 2px 2px;
+}
