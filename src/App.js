@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ListTask from './components/ListTask';
 import EditTask from './components/EditTask';
+import ViewTask from './components/ViewTask';
 import Button from '@mui/material/Button';
 import AddTask from './components/AddTask';
 
@@ -17,6 +18,7 @@ function App() {
   //dialog :
   const [openAddDialog, setOpenAddDialog] = useState(false);
   const [openEditDialog, setOpenEditDialog] = useState(false);
+  const [openViewDialog, setOpenViewDialog] = useState(false);
   //for editing :
   const [currentTask, setCurrentTask] = useState(null);
 
@@ -40,6 +42,7 @@ function App() {
     fetch(`${SERVER_URL}/tasks/${taskId}`,{method : 'DELETE'})
     .then(response => {
       if (response.ok) {
+        console.log("delete success")
         setTasks(tasks.filter(task => task.id !== taskId));
       } else {
         console.error('Error deleting task');
@@ -57,6 +60,14 @@ function App() {
   const handleCloseAddDialog = () => {
     setOpenAddDialog(false);
   };
+
+  const handleOpenViewDialog = () => {
+    setOpenViewDialog(true);
+  }
+
+  const handleCloseViewDialog = () => {
+    setOpenViewDialog(false);
+  }
 
   //save new task
   //backend API call
@@ -120,7 +131,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Task-Man</h1> <span>The amazing task manager!</span>
+      <h1>Task-Man</h1> <span id='span-text'>The amazing task manager!</span>
       
       <div style={{textAlign: 'right', width : '90%', paddingBottom: '2em' }}>
         <Button id='create-button' variant='contained' size='large' onClick={handleOpenAddDialog}> Create Task</Button>
@@ -130,7 +141,7 @@ function App() {
       <AddTask open={openAddDialog} onClose={handleCloseAddDialog} onSave={handleSaveTask} />
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<div id="task-container"><ListTask tasks={tasks} onDelete={handleDelete} onEdit={handleOpenEditDialog}/></div>} />
+            <Route path="/" element={<div id="task-container"><ListTask tasks={tasks} onDelete={handleDelete} onEdit={handleOpenEditDialog} onView={handleOpenViewDialog}/></div>} />
           </Routes>
       </BrowserRouter>
       {currentTask && (
@@ -140,6 +151,13 @@ function App() {
         onClose={handleCloseEditDialog}
         onSave={handleSaveEditedTask}
       />
+      )}
+      {currentTask && (
+        <ViewTask
+        task={currentTask}
+        open={openViewDialog}
+        onClose={handleCloseViewDialog}
+        />
       )}
     </div>
   );

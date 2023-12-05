@@ -2,7 +2,7 @@ body {
   background-color: #282c34;
 }
 
-span {
+#span-text {
   color: goldenrod;
   font-weight: 500;
   font-size: 18px;
@@ -79,9 +79,8 @@ h1 {
 #task-container {
   margin: 0 auto;
   width: 80%;
-  height: 40em;
+  height: 36.5em;
   vertical-align: middle;
-  background-color: #32343a;
   border-radius: 25px;
 }
 
