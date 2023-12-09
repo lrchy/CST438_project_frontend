@@ -1,0 +1,15 @@
+.custom-dialog {
+    color: whitesmoke;
+}
+
+dialog {
+    border-radius: 2em;
+}
+
+#edit-task-button {
+    color: white;
+}
+
+.Mui-focused {
+    border-color: white;
+}

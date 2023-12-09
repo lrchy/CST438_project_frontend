@@ -15,21 +15,20 @@ function formatDueDate(dateString){
     return new Date(dateString).toLocaleString(undefined, options).replace(',','@');
 }
 
-function ListTask({tasks, onDelete, onEdit}) {
+function ListTask({tasks, onDelete, onEdit, onView}) {
     console.log("rendering", tasks); //check received tasks
     return(
       <div id="task">
         {tasks.map((task) => (
-          <div class="task-card">
+          <div class="task-card" >
             <h3> {task.title} </h3>
             <div class="task-content">
               <div>{task.status}</div>
-              <div>Priority</div>
               <div>{task.dueDate}</div>
             </div>
             <div class="task-options">
               <button class="task-button" onClick={() => onEdit(task)}>EDIT</button>
-              <button class="task-button" onClick={() => onDelete(task)}>DELETE</button>
+              <button class="task-button" onClick={() => onDelete(task.id)}>DELETE</button>
             </div>
           </div>
         ))}

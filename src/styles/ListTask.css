@@ -1,7 +1,9 @@
 #task {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    
+    background-color: #32343a;
+    border-radius: 25px;
   }
 
 .task-card {
@@ -31,7 +33,7 @@ h3 {
     text-shadow: rgb(143, 108, 20) 2px 2px;
 }
 
-button {
+.task-button {
     background: none;
     border: none;
     cursor: pointer;
