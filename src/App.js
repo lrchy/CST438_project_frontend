@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom'; // Import Redirect
 import ListTask from './components/ListTask';
 import EditTask from './components/EditTask';
 import ViewTask from './components/ViewTask';
@@ -131,32 +132,57 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Task-Man</h1> <span id='span-text'>The amazing task manager!</span>
-      
-      <div style={{textAlign: 'right', width : '90%', paddingBottom: '2em' }}>
-        <Button id='create-button' variant='contained' size='large' onClick={handleOpenAddDialog}> Create Task</Button>
-        <Button id='login-button' variant='contained' size='large'> Login </Button>
+      <h1>Task-Man</h1> <span id="span-text">The amazing task manager!</span>
+
+      <div style={{ textAlign: 'right', width: '90%', paddingBottom: '2em' }}>
+        <Button
+          id="create-button"
+          variant="contained"
+          size="large"
+          onClick={handleOpenAddDialog}
+        >
+          {' '}
+          Create Task
+        </Button>
+        <Button id="login-button" variant="contained" size="large">
+          {' '}
+          Login{' '}
+        </Button>
       </div>
-      
-      <AddTask open={openAddDialog} onClose={handleCloseAddDialog} onSave={handleSaveTask} />
-      <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<div id="task-container"><ListTask tasks={tasks} onDelete={handleDelete} onEdit={handleOpenEditDialog} onView={handleOpenViewDialog}/></div>} />
-          </Routes>
-      </BrowserRouter>
-      {currentTask && (
-      <EditTask 
-        task={currentTask}
-        open={openEditDialog}
-        onClose={handleCloseEditDialog}
-        onSave={handleSaveEditedTask}
+
+      <AddTask
+        open={openAddDialog}
+        onClose={handleCloseAddDialog}
+        onSave={handleSaveTask}
       />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div id="task-container">
+              <ListTask
+                tasks={tasks}
+                onDelete={handleDelete}
+                onEdit={handleOpenEditDialog}
+                onView={handleOpenViewDialog}
+              />
+            </div>
+          }
+        />
+      </Routes>
+      {currentTask && (
+        <EditTask
+          task={currentTask}
+          open={openEditDialog}
+          onClose={handleCloseEditDialog}
+          onSave={handleSaveEditedTask}
+        />
       )}
       {currentTask && (
         <ViewTask
-        task={currentTask}
-        open={openViewDialog}
-        onClose={handleCloseViewDialog}
+          task={currentTask}
+          open={openViewDialog}
+          onClose={handleCloseViewDialog}
         />
       )}
     </div>
