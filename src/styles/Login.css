@@ -1,0 +1,20 @@
+.login-input {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+label {
+    color: white;
+}
+
+#login-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40em;
+}
+
+
+#creds {
+    margin: 1em;
+}
